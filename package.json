@@ -12,8 +12,10 @@
     "prebuild": "rimraf static",
     "build": "npm-run-all build:*",
     "build:css": "node scripts/build/build-css.js",
+    "build:js": "node scripts/build/build-js.js",
     "watch": "run-p watch:*",
     "watch:css": "chokidar 'src/scss/**/*.scss' --command 'npm run build:css'",
+    "watch:js": "chokidar 'src/js/**/*.js' --command 'npm run build:js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -42,6 +44,7 @@
     "gulp-autoprefixer": "^7.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
+    "gulp-minify": "^3.1.0",
     "gulp-sass": "^4.0.2",
     "nodemon": "^2.0.2"
   }

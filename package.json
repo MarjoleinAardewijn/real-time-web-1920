@@ -9,9 +9,9 @@
     "predev": "npm run build",
     "dev": "nodemon server.js",
     "dev:watch": "concurrently \"npm run dev\" \"npm run watch\"",
-    "prebuild": "rimraf /static",
+    "prebuild": "rimraf static",
     "build": "npm-run-all build:*",
-    "build:css": "node scripts/build-css.js",
+    "build:css": "node scripts/build/build-css.js",
     "watch": "run-p watch:*",
     "watch:css": "chokidar 'src/scss/**/*.scss' --command 'npm run build:css'",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,7 +32,8 @@
     "express": "^4.17.1",
     "node-fetch": "^2.6.0",
     "npm-run-all": "^4.1.5",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "chokidar-cli": "^2.1.0",

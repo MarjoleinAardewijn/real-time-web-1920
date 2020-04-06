@@ -14,9 +14,9 @@ app.set('view engine', 'ejs')
         router.basicPage(res, 'home', 'Home');
     });
 
-io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-        console.log('message: ' + msg);
+io.on('connection', function(socket){
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg);
     });
 });
 

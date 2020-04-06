@@ -146,15 +146,21 @@ This will be returning the following data:
 The sources I used the most during the development of the app are:
 - [ExpressJS](https://expressjs.com/)
 - [EJS](https://ejs.co/)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Nodemon](https://nodemon.io/)
+- [Node-Fetch](https://www.npmjs.com/package/node-fetch)
 - [GulpJS](https://gulpjs.com/docs/en/getting-started/quick-start)
 - [Gulp Sass](https://www.npmjs.com/package/gulp-sass)
 - [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
 - [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+- [Gulp Concat](https://www.npmjs.com/package/gulp-concat)
+- [Gulp Minify](https://www.npmjs.com/package/gulp-minify)
 - [Rimraf](https://www.npmjs.com/package/rimraf)
+- [Concurrently](https://www.npmjs.com/package/concurrently)
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
+- [Socket.IO](https://socket.io/)
 
 ## Credits
 
-- [...]()
+- [Socket.IO Tutorial](https://socket.io/get-started/chat/)

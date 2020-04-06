@@ -1,62 +1,160 @@
 # Real-Time Web @cmda-minor-web · 2019-2020
 
-During this course you will learn how to build a **meaningful** real-time application. You will learn techniques to setup an open connection between the client and the server. This will enable you to send data in real-time both ways, at the same time.
+<p align="center">
+  <a href="">
+    <img src="https://img.shields.io/badge/demo-LIVE-brightgreen.svg?style=flat-square" alt="Demo">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/MarjoleinAardewijn/real-time-web-1920/blob/master/LICENSE.txt">
+    <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License">
+  </a>
+</p>
 
-## Goals
-- _Deal with real-time complexity_
-- _Handle real-time client-server interaction_
-- _Handle real-time data management_
-- _Handle multi-user support_
+![App Home]( "App Home")
 
-[Rubric][rubric]
+## Description
 
-## Curriculum
+...
 
-### Week 1 - Hello Server
+## Table of Contents
 
-Goal: Build and deploy a unique barebone real-time app  
+* [To Do](#To-do)
+* [Installation](#Installation)
+  * [Development](#Development)
+  * [Production](#Production)
+* [API](#Api)
+* [Feature Wishlist](#Feature-Wishlist)
+* [Sources](#Sources)
+* [Credits](#Credits)
 
-[Exercises](https://github.com/cmda-minor-web/real-time-web-1920/blob/master/course/week-1.md)    
-[Slides](https://docs.google.com/presentation/d/1Q_2EpEnW53G-DiRYtfp1VRYHdLJYJ7bjoLxAWhGbW-0/edit?usp=sharing)  
+## To do
 
+- [ ] ...
 
-### Week 2 - Sharing is caring  
+## Installation
 
-Goal: Store, manipulate and share data between server-client   
+See the installation guide to learn how to install and use the app.
 
-[Exercises](https://github.com/cmda-minor-web/real-time-web-1920/blob/master/course/week-2.md)    
-[Slides](https://docs.google.com/presentation/d/1p_P-rciWJQ2BMgveOYNTcwEJHh1yxB1-HqKZhiD8kkk/edit?usp=sharing)
+<details>
+    <summary>Installation Guide</summary>
 
+Go via the terminal to the folder you want the project to be placed:
 
-### Week 3 - Let’s take this show on the road 
+```
+    cd Path/To/Folder
+```
 
-Goal: Handle data sharing and multi-user support 
+Clone the repository and go to the project folder:
 
-[Exercises](https://github.com/cmda-minor-web/real-time-web-1920/blob/master/course/week-3.md)  
-[Slides](https://drive.google.com/open?id=19GE6r1jha3gX-uhQI0NIv09klTT45BihuELqZSEa2_8)
+```
+    git clone https://github.com/MarjoleinAardewijn/real-time-web-1920.git && cd real-time-web-1920
+```
 
-> If you're seeing this message on a forked repo, it means one of our students hasn't changed the description yet 😈
+After cloning the project go to the docs folder:
 
-<!-- Add a link to your live demo in Github Pages 🌐-->
+```
+    cd docs
+```
 
-<!-- ☝️ replace this description with a description of your own work -->
+Install npm:
 
-<!-- replace the code in the /docs folder with your own, so you can showcase your work with GitHub Pages 🌍 -->
+```
+    npm init
+```
 
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
+Install all the dependencies:
 
-<!-- Maybe a table of contents here? 📚 -->
+```
+    npm install
+```
 
-<!-- How about a section that describes how to install this project? 🤓 -->
+### Development
 
-<!-- ...but how does one use this project? What are its features 🤔 -->
+When in development, run the following command to watch the changes:
 
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
+```
+    npm run dev:watch
+```
 
-<!-- This would be a good place for your data life cycle ♻️-->
+In you browser. go to:
 
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
+```
+   localhost:5000 
+```
 
-<!-- How about a license here? 📜  -->
+### Production
 
-[rubric]: https://docs.google.com/spreadsheets/d/e/2PACX-1vSd1I4ma8R5mtVMyrbp6PA2qEInWiOialK9Fr2orD3afUBqOyvTg_JaQZ6-P4YGURI-eA7PoHT8TRge/pubhtml
+When the app the finished use Heroku to deploy it.
+
+First, login to Heroku:
+```
+    heroku login
+```
+
+Deploy the app by creating a new domain on Heroku. Heroku generates a random name for your app.
+```
+    heroku create
+```
+
+Clone the repository:
+```
+    heroku git:remote -a name-of-the-app
+```
+
+Push master branch to Heroku:
+```
+    git add .
+    git commit -m "Heroku"
+    git push heroku master
+```
+
+Open the app in your browser to check if everything went well:
+```
+    heroku open
+```
+
+To see the logs when something went wrong, run the following command:
+```
+    heroku logs --tail
+```
+</details>
+
+## API
+
+The API that is used for this app is the ... API.
+
+For getting ... I used the following API endpoint:
+
+> https://
+
+This will be returning the following data:
+
+<details>
+ <summary>Json Data</summary>
+
+```json
+...
+```
+</details>
+
+## Feature Wishlist
+
+...
+
+## Sources
+
+The sources I used the most during the development of the app are:
+- [ExpressJS](https://expressjs.com/)
+- [EJS](https://ejs.co/)
+- [Nodemon](https://nodemon.io/)
+- [GulpJS](https://gulpjs.com/docs/en/getting-started/quick-start)
+- [Gulp Sass](https://www.npmjs.com/package/gulp-sass)
+- [Gulp Clean CSS](https://www.npmjs.com/package/gulp-clean-css)
+- [Gulp Autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+- [Rimraf](https://www.npmjs.com/package/rimraf)
+- [Chokidar](https://www.npmjs.com/package/chokidar-cli)
+- [npm-run-all](https://www.npmjs.com/package/npm-run-all)
+
+## Credits
+
+- [...]()

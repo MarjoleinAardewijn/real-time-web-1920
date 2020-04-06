@@ -4,8 +4,17 @@
   "description": "During this course you will learn how to build a **meaningful** real-time application. You will learn techniques to setup an open connection between the client and the server. This will enable you to send data in real-time both ways, at the same time.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "prestart": "npm run build",
+    "start": "node server.js",
+    "predev": "npm run build",
+    "dev": "nodemon server.js",
+    "dev:watch": "concurrently \"npm run dev\" \"npm run watch\"",
+    "prebuild": "rimraf /static",
+    "build": "npm-run-all build:*",
+    "build:css": "node scripts/build-css.js",
+    "watch": "run-p watch:*",
+    "watch:css": "chokidar 'src/scss/**/*.scss' --command 'npm run build:css'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -16,5 +25,23 @@
   "bugs": {
     "url": "https://github.com/MarjoleinAardewijn/real-time-web-1920/issues"
   },
-  "homepage": "https://github.com/MarjoleinAardewijn/real-time-web-1920#readme"
+  "homepage": "https://github.com/MarjoleinAardewijn/real-time-web-1920#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.2",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "chokidar-cli": "^2.1.0",
+    "concurrently": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "nodemon": "^2.0.2"
+  }
 }

@@ -11,7 +11,7 @@ $(function() {
     let $window = $(window),
         $usernameInput = $('.usernameInput'), // Input for username
         $messages = $('.messages'), // Messages area
-        $inputMessage = $('.inputMessage'), // Input message input box
+        $messageInput = $('.messageInput'), // Input message input box
         $loginPage = $('.login.page'), // The login page
         $chatPage = $('.chat.page'); // The chatroom page
 
@@ -27,7 +27,7 @@ $(function() {
     const addParticipantsMessage = (data) => {
         let message = '';
         if (data.numUsers === 1) {
-            message += "there's 1 participant";
+            message += "you're the only participant";
         } else {
             message += "there are " + data.numUsers + " participants";
         }
@@ -43,7 +43,7 @@ $(function() {
             $loginPage.fadeOut();
             $chatPage.show();
             $loginPage.off('click');
-            $currentInput = $inputMessage.focus();
+            $currentInput = $messageInput.focus();
 
             // Tell the server your username
             socket.emit('add user', username);
@@ -52,12 +52,12 @@ $(function() {
 
     // Sends a chat message
     const sendMessage = () => {
-        let message = $inputMessage.val();
+        let message = $messageInput.val();
         // Prevent markup from being injected into the message
         message = cleanInput(message);
         // if there is a non-empty message and a socket connection
         if (message && connected) {
-            $inputMessage.val('');
+            $messageInput.val('');
             addChatMessage({
                 username: username,
                 message: message
@@ -206,7 +206,7 @@ $(function() {
         }
     });
 
-    $inputMessage.on('input', () => {
+    $messageInput.on('input', () => {
         updateTyping();
     });
 
@@ -218,8 +218,8 @@ $(function() {
     });
 
     // Focus input when clicking on the message input's border
-    $inputMessage.click(() => {
-        $inputMessage.focus();
+    $messageInput.click(() => {
+        $messageInput.focus();
     });
 
     // Socket events

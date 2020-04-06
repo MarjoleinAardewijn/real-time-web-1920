@@ -14,13 +14,12 @@ app.set('view engine', 'ejs')
         router.basicPage(res, 'home', 'Home');
     });
 
-io.on('connection', function(socket){
-    console.log('a user connected');
-    socket.on('disconnect', function(){
-        console.log('user disconnected');
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+        console.log('message: ' + msg);
     });
 });
 
-http.listen(config.port, function(){
+http.listen(config.port, () => {
     console.log(`Application started on port: ${config.port}`);
 });

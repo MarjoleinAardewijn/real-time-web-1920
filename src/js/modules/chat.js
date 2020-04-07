@@ -7,12 +7,6 @@ $(function() {
             '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
         ];
 
-    let time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-
-
-    // console.log(`${time.getHours()}:${time.getMinutes()}`);
-    console.log(time);
-
     // Initialize variables
     let $window = $(window),
         $usernameInput = $('.usernameInput'), // Input for username
@@ -81,6 +75,9 @@ $(function() {
 
     // Adds the visual chat message to the message list
     const addChatMessage = (data, options) => {
+        let date = new Date();
+        let time = date.getHours() + ":" + date.getMinutes();
+
         // Don't fade the message in if there is an 'X was typing'
         let $typingMessages = getTypingMessages(data);
         options = options || {};

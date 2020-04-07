@@ -180,3 +180,4 @@ The sources I used the most during the development of the app are:
 ## Credits
 
 - [Socket.IO Tutorial](https://socket.io/get-started/chat/)
+- [Socket.IO Demo Chat](https://socket.io/demos/chat/)

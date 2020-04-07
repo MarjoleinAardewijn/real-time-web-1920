@@ -1,8 +1,47 @@
 <%- include('partials/head') %>
 
-    <ul id="messages"></ul>
-    <form action="">
-        <input id="message" autocomplete="off" /><button>Send</button>
-    </form>
+<ul class="pages">
+    <li class="chat page">
+        <button id="myBtn" class="btn-open-modal">Shortcuts</button>
+
+        <div class="chatArea">
+            <ul class="messages"></ul>
+        </div>
+        <input class="messageInput" placeholder="Type here..."/>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Shortcuts</h1>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="table-shortcuts">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for(let item in data) { %>
+                            <tr>
+                                <td><%= item %></td>
+                                <td><%= data[item] %></td>
+                            </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="login page">
+        <div class="form">
+            <h3 class="title">What's your nickname?</h3>
+            <input class="usernameInput" type="text" maxlength="14" />
+        </div>
+    </li>
+</ul>
 
 <%- include('partials/footer') %>

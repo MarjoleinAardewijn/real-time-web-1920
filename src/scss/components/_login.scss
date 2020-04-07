@@ -1,0 +1,41 @@
+/* Login Page */
+
+.login.page {
+    background-color: #000;
+
+    .form {
+        height: 100px;
+        margin-top: -100px;
+        position: absolute;
+
+        text-align: center;
+        top: 50%;
+        width: 100%;
+
+        .usernameInput {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid #fff;
+            outline: none;
+            padding-bottom: 15px;
+            margin-top: 1.5rem;
+            text-align: center;
+            width: 400px;
+        }
+    }
+
+    .title,
+    .usernameInput {
+        color: #fff;
+        font-weight: 100;
+    }
+
+    .title {
+        font-size: 200%;
+    }
+
+    .usernameInput {
+        font-size: 200%;
+        letter-spacing: 3px;
+    }
+}

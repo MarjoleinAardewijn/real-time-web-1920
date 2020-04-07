@@ -3,7 +3,7 @@ const gulp = require('gulp'),
     minify = require('gulp-minify');
 
 return gulp.src([
-    './src/js/*.js',
+    './src/js/**/*.js',
 ])
     .pipe(concat('index.js'))
     .pipe(minify())

@@ -59,10 +59,10 @@ Go via the terminal to the folder you want the project to be placed:
     cd Path/To/Folder
 ```
 
-Clone the repository and go to the project folder:
+Clone the repository (and submodules) and go to the project folder:
 
 ```
-    git clone https://github.com/MarjoleinAardewijn/real-time-web-1920.git && cd real-time-web-1920
+    git clone --recurse-submodules https://github.com/MarjoleinAardewijn/real-time-web-1920.git && cd real-time-web-1920
 ```
 
 After cloning the project go to the docs folder:

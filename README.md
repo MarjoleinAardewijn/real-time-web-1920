@@ -10,11 +10,23 @@
   </a>
 </p>
 
-![App Home]( "App Home")
+![App Home](https://user-images.githubusercontent.com/23479038/78683379-7ee9f480-78ef-11ea-9c2c-ec378e58d709.png "App Home")
+
+<details>
+    <summary>Chat</summary>
+    
+![App Chat](https://user-images.githubusercontent.com/23479038/78683386-80b3b800-78ef-11ea-91a4-82b964058fae.png "App Chat")
+</details>
+
+<details>
+    <summary>Shortcuts</summary>
+
+![App Shortcuts](https://user-images.githubusercontent.com/23479038/78683389-83161200-78ef-11ea-816b-881cc722915f.png "App Shortcuts")
+</details>
 
 ## Description
 
-...
+This app is a chat with the unique feature that users can use shortcuts to write some messages and emoticons.
 
 ## Table of Contents
 
@@ -22,14 +34,17 @@
 * [Installation](#Installation)
   * [Development](#Development)
   * [Production](#Production)
-* [API](#Api)
-* [Feature Wishlist](#Feature-Wishlist)
+<!-- * [API](#Api) -->
+<!-- * [Feature Wishlist](#Feature-Wishlist) -->
 * [Sources](#Sources)
 * [Credits](#Credits)
 
 ## To do
 
-- [ ] ...
+- [x] Setup Socket.IO
+- [x] Chat
+- [x] Styling
+- [x] Unique feature
 
 ## Installation
 
@@ -119,27 +134,27 @@ To see the logs when something went wrong, run the following command:
 ```
 </details>
 
-## API
+<!-- ## API -->
 
-The API that is used for this app is the ... API.
+<!-- The API that is used for this app is the ... API. -->
 
-For getting ... I used the following API endpoint:
+<!-- For getting ... I used the following API endpoint: -->
 
-> https://
+<!-- > https:// -->
 
-This will be returning the following data:
+<!-- This will be returning the following data: -->
 
-<details>
- <summary>Json Data</summary>
+<!-- <details> -->
+<!--  <summary>Json Data</summary> -->
 
-```json
-...
-```
-</details>
+<!-- ```json -->
+<!-- ... -->
+<!-- ``` -->
+<!-- </details> -->
 
-## Feature Wishlist
+<!-- ## Feature Wishlist -->
 
-...
+<!-- ... -->
 
 ## Sources
 

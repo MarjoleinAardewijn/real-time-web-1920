@@ -4,9 +4,23 @@ input {
     font-family: $font-family;
 }
 
+html {
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
 body {
     color: $dark;
     font-size: $font-size;
+}
+
+h1 {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+th {
+    font-weight: 900;
 }
 
 .messages {
@@ -24,7 +38,6 @@ body {
     text-align: center;
 }
 
-html {
-    font-weight: 300;
-    -webkit-font-smoothing: antialiased;
+.time {
+    font-size: 12px;
 }

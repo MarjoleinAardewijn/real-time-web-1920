@@ -42,3 +42,13 @@
     right: 0;
     width: 100%;
 }
+
+.message {
+    display: flex !important;
+    align-items: flex-start;
+
+    .time {
+        padding-top: 0.1rem;
+        padding-right: 0.5rem;
+    }
+}

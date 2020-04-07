@@ -2,10 +2,39 @@
 
 <ul class="pages">
     <li class="chat page">
+        <button id="myBtn" class="btn-open-modal">Shortcuts</button>
+
         <div class="chatArea">
             <ul class="messages"></ul>
         </div>
         <input class="messageInput" placeholder="Type here..."/>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1>Shortcuts</h1>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="table-shortcuts">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Shortcut</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% for(let item in data) { %>
+                            <tr>
+                                <td><%= item %></td>
+                                <td><%= data[item] %></td>
+                            </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </li>
     <li class="login page">
         <div class="form">

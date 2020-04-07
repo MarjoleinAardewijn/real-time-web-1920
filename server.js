@@ -4,7 +4,31 @@ const express = require('express'),
     router = require('./scripts/modules/router'),
     app = express(),
     server = require('http').createServer(app),
-    io = require('socket.io')(server);
+    io = require('socket.io')(server),
+    customMessages = {
+        '--hhry': 'Hey, how are you?',
+        '--ghry': 'Good, how are you?',
+        '--hry': 'How are you?',
+        '--wryd': 'What are you doing?',
+        '--ny': 'Nothing, you?',
+        '--xo': '-xoxox-',
+        '--hug': '(づ｡◕‿‿◕｡)づ',
+        '--bird': '~( ‾▿‾)~',
+        '--bear': 'ʕ•ᴥ•ʔ',
+        '--bear-hey': 'ʕ•ᴥ•ʔっ',
+        '--strong': 'ᕙ(`▿´)ᕗ',
+        '--cry': '(╥﹏╥)',
+        '--sending-love': '(っ◔◡◔)っ ❤',
+        '--dollar': '[̲̅$̲̅(̲̅ιοο̲̅)̲̅$̲̅]',
+        '--flower-1': '❁◕ ‿ ◕❁',
+        '--flower-2': '❀◕ ‿ ◕❀',
+        '--flower-3': '✿◕ ‿ ◕✿',
+        '--flower-l': '(✿◠‿◠)',
+        '--flower-r': '(◡‿◡✿)',
+        '--brr': 'O﹏o',
+        '--smile': 'ヅ',
+        '--concerned': 'ಠ_ಠ'
+    };
 
 // Routing
 
@@ -13,7 +37,7 @@ app.set('view engine', 'ejs')
     .use(express.static('static'))
 
     .get('/', (req, res) => {
-        router.basicPage(res, 'home', 'Home');
+        router.pageWithData(res, 'home', 'Home', customMessages);
     });
 
 // Chatroom
@@ -25,6 +49,17 @@ io.on('connection', (socket) => {
 
     // when the client emits 'new message', this listens and executes
     socket.on('new message', (data) => {
+
+        // check if a custom messages is used
+        for(let item in customMessages) {
+            if (data === item) {
+                // set data to be the chosen custom message
+                data = customMessages[item];
+                // we tell the client to execute 'new message'
+                emitToUser(socket, data);
+            }
+        }
+
         // we tell the client to execute 'new message'
         socket.broadcast.emit('new message', {
             username: socket.username,
@@ -81,3 +116,10 @@ io.on('connection', (socket) => {
 server.listen(config.port, () => {
     console.log(`Application started on port: ${config.port}`);
 });
+
+const emitToUser = (socket, data) => {
+    socket.emit('new message', {
+        username: socket.username,
+        message: `Send message: ${data}`
+    });
+};

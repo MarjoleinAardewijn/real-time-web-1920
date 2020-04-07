@@ -1,0 +1,24 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: none;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    color: $light;
+    background-color: $dark;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.table-shortcuts {
+    max-height: 500px;
+    overflow: scroll;
+}

@@ -7,7 +7,13 @@ $(function() {
             '#3b88eb', '#3824aa', '#a700ff', '#d300e7'
         ];
 
-    // Initialize letiables
+    let time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+
+
+    // console.log(`${time.getHours()}:${time.getMinutes()}`);
+    console.log(time);
+
+    // Initialize variables
     let $window = $(window),
         $usernameInput = $('.usernameInput'), // Input for username
         $messages = $('.messages'), // Messages area
@@ -88,12 +94,14 @@ $(function() {
             .css('color', getUsernameColor(data.username));
         let $messageBodyDiv = $('<span class="messageBody">')
             .text(data.message);
+        let $timeDiv = $('<span class="time">')
+            .text(time);
 
         let typingClass = data.typing ? 'typing' : '';
         let $messageDiv = $('<li class="message"/>')
             .data('username', data.username)
             .addClass(typingClass)
-            .append($usernameDiv, $messageBodyDiv);
+            .append($timeDiv, $usernameDiv, $messageBodyDiv);
 
         addMessageElement($messageDiv, options);
     };

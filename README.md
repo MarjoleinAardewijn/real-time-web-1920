@@ -34,8 +34,8 @@ This app is a chat with the unique feature that users can use shortcuts to write
 * [Installation](#Installation)
   * [Development](#Development)
   * [Production](#Production)
-<!-- * [API](#Api) -->
-<!-- * [Feature Wishlist](#Feature-Wishlist) -->
+* [API](#Api)
+* [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
 
@@ -134,27 +134,27 @@ To see the logs when something went wrong, run the following command:
 ```
 </details>
 
-<!-- ## API -->
+## API
 
-<!-- The API that is used for this app is the ... API. -->
+The API that is used for this app is the ... API.
 
-<!-- For getting ... I used the following API endpoint: -->
+For getting ... I used the following API endpoint:
 
-<!-- > https:// -->
+> https://
 
-<!-- This will be returning the following data: -->
+This will be returning the following data:
 
-<!-- <details> -->
-<!--  <summary>Json Data</summary> -->
+<details>
+  <summary>Json Data</summary>
 
-<!-- ```json -->
-<!-- ... -->
-<!-- ``` -->
-<!-- </details> -->
+```json
+ ...
+```
+</details>
 
-<!-- ## Feature Wishlist -->
+## Feature Wishlist
 
-<!-- ... -->
+...
 
 ## Sources
 

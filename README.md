@@ -12,21 +12,9 @@
 
 ![App Home](https://user-images.githubusercontent.com/23479038/78683379-7ee9f480-78ef-11ea-9c2c-ec378e58d709.png "App Home")
 
-<details>
-    <summary>Chat</summary>
-    
-![App Chat](https://user-images.githubusercontent.com/23479038/78683386-80b3b800-78ef-11ea-91a4-82b964058fae.png "App Chat")
-</details>
-
-<details>
-    <summary>Shortcuts</summary>
-
-![App Shortcuts](https://user-images.githubusercontent.com/23479038/78683389-83161200-78ef-11ea-816b-881cc722915f.png "App Shortcuts")
-</details>
-
 ## Description
 
-This app is a chat with the unique feature that users can use shortcuts to write some messages and emoticons.
+...
 
 ## Table of Contents
 
@@ -41,10 +29,7 @@ This app is a chat with the unique feature that users can use shortcuts to write
 
 ## To do
 
-- [x] Setup Socket.IO
-- [x] Chat
-- [x] Styling
-- [x] Unique feature
+...
 
 ## Installation
 
@@ -174,10 +159,8 @@ The sources I used the most during the development of the app are:
 - [Concurrently](https://www.npmjs.com/package/concurrently)
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
-- [Socket.IO](https://socket.io/)
-- [Emoticons](https://fsymbols.com/emoticons/#all_cats)
+- [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 ## Credits
 
-- [Socket.IO Tutorial](https://socket.io/get-started/chat/)
-- [Socket.IO Demo Chat](https://socket.io/demos/chat/)
+...

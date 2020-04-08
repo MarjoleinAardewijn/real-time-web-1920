@@ -1,7 +1,7 @@
 # Real-Time Web @cmda-minor-web · 2019-2020
 
 <p align="center">
-  <a href="https://rocky-headland-12149.herokuapp.com/">
+  <a href="https://marjolein-real-time-web-1920.herokuapp.com/">
     <img src="https://img.shields.io/badge/demo-LIVE-brightgreen.svg?style=flat-square" alt="Demo">
   </a>
   &nbsp;&nbsp;&nbsp;

@@ -10,7 +10,7 @@
   </a>
 </p>
 
-![App Home](https://user-images.githubusercontent.com/23479038/78683379-7ee9f480-78ef-11ea-9c2c-ec378e58d709.png "App Home")
+![App Home](https://user-images.githubusercontent.com/23479038/79788275-b1acd780-8348-11ea-82ba-8c18d691c9ca.png "App Home")
 
 ## Description
 
@@ -35,6 +35,7 @@ The idea behind this app is to show people even though it's all very difficult r
 - [x] Request API Key Twitter API
 - [x] Get Corona Data
 - [ ] Show Real Time Data using Socket.IO
+- [ ] Data management
 
 ## Installation
 

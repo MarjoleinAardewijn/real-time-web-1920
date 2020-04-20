@@ -26,6 +26,9 @@ The idea behind this app is to show people even though it's all very difficult r
 * [How it works](#How-it-works)
   * [Data Life Cycle Diagram](#Data-Life-Cycle-Diagram)
 * [API](#Api)
+* [Dependencies](#Dependencies)
+  * [Core Dependencies](#Core-Dependencies)
+  * [Dev Dependencies](#Dev-Dependencies)
 * [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
@@ -435,6 +438,30 @@ This will be returning the following data:
 ```
 </details>
 
+## Dependencies
+### Core Dependencies
+
+- [express](https://www.npmjs.com/package/express)
+- [ejs](https://www.npmjs.com/package/ejs)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [node-fetch](https://www.npmjs.com/package/node-fetch)
+- [gulp](https://www.npmjs.com/package/gulp)
+- [gulp-sass](https://www.npmjs.com/package/gulp-sass)
+- [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
+- [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+- [gulp-concat](https://www.npmjs.com/package/gulp-concat)
+- [gulp-minify](https://www.npmjs.com/package/gulp-minify)
+- [rimraf](https://www.npmjs.com/package/rimraf)
+- [npm-run-all](https://www.npmjs.com/package/npm-run-all)
+- [socket.io](https://www.npmjs.com/package/socket.io)
+- [heroku](https://www.npmjs.com/package/heroku)
+
+### Dev Dependencies
+
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Concurrently](https://www.npmjs.com/package/concurrently)
+- [Chokidar](https://www.npmjs.com/package/chokidar-cli)
+
 ## Feature Wishlist
 
 ...
@@ -458,6 +485,11 @@ The sources I used the most during the development of the app are:
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
 - [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+
+- [Slice](https://www.w3schools.com/jsref/jsref_slice_array.asp)
+- [Sort Array Desc](https://stackoverflow.com/questions/54151954/how-to-sort-json-array-elements-in-descending-order)
+- [Colors](https://material.io/resources/color/#!/?view.left=0&view.right=0)
+- [Get Index Of Object With Specific Value](https://stackoverflow.com/questions/36419195/get-index-from-a-json-object-with-value)
 
 ## Credits
 

@@ -25,10 +25,10 @@ The idea behind this app is to show people even though it's all very difficult r
   * [Production](#Production)
 * [How it works](#How-it-works)
   * [Data Life Cycle Diagram](#Data-Life-Cycle-Diagram)
+  * [Dependencies](#Dependencies)
+    * [Core Dependencies](#Core-Dependencies)
+    * [Dev Dependencies](#Dev-Dependencies)
 * [API](#Api)
-* [Dependencies](#Dependencies)
-  * [Core Dependencies](#Core-Dependencies)
-  * [Dev Dependencies](#Dev-Dependencies)
 * [Feature Wishlist](#Feature-Wishlist)
 * [Sources](#Sources)
 * [Credits](#Credits)
@@ -132,6 +132,31 @@ To see the logs when something went wrong, run the following command:
 ### Data Life Cycle Diagram
 
 ![Data Life Cycle Diagram](https://user-images.githubusercontent.com/23479038/79784432-83c49480-8342-11ea-8a30-4a9070e67392.jpg "Data Life Cycle Diagram")
+
+### Dependencies
+#### Core Dependencies
+
+- [express](https://www.npmjs.com/package/express)
+- [ejs](https://www.npmjs.com/package/ejs)
+- [dotenv](https://www.npmjs.com/package/dotenv)
+- [node-fetch](https://www.npmjs.com/package/node-fetch)
+- [gulp](https://www.npmjs.com/package/gulp)
+- [gulp-sass](https://www.npmjs.com/package/gulp-sass)
+- [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
+- [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+- [gulp-concat](https://www.npmjs.com/package/gulp-concat)
+- [gulp-minify](https://www.npmjs.com/package/gulp-minify)
+- [rimraf](https://www.npmjs.com/package/rimraf)
+- [npm-run-all](https://www.npmjs.com/package/npm-run-all)
+- [socket.io](https://www.npmjs.com/package/socket.io)
+- [heroku](https://www.npmjs.com/package/heroku)
+
+#### Dev Dependencies
+
+- [Nodemon](https://www.npmjs.com/package/nodemon)
+- [Concurrently](https://www.npmjs.com/package/concurrently)
+- [Chokidar](https://www.npmjs.com/package/chokidar-cli)
+
 
 ## API
 
@@ -437,30 +462,6 @@ This will be returning the following data:
 }
 ```
 </details>
-
-## Dependencies
-### Core Dependencies
-
-- [express](https://www.npmjs.com/package/express)
-- [ejs](https://www.npmjs.com/package/ejs)
-- [dotenv](https://www.npmjs.com/package/dotenv)
-- [node-fetch](https://www.npmjs.com/package/node-fetch)
-- [gulp](https://www.npmjs.com/package/gulp)
-- [gulp-sass](https://www.npmjs.com/package/gulp-sass)
-- [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css)
-- [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
-- [gulp-concat](https://www.npmjs.com/package/gulp-concat)
-- [gulp-minify](https://www.npmjs.com/package/gulp-minify)
-- [rimraf](https://www.npmjs.com/package/rimraf)
-- [npm-run-all](https://www.npmjs.com/package/npm-run-all)
-- [socket.io](https://www.npmjs.com/package/socket.io)
-- [heroku](https://www.npmjs.com/package/heroku)
-
-### Dev Dependencies
-
-- [Nodemon](https://www.npmjs.com/package/nodemon)
-- [Concurrently](https://www.npmjs.com/package/concurrently)
-- [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 
 ## Feature Wishlist
 

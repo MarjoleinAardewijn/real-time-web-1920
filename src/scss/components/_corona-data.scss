@@ -1,0 +1,82 @@
+.corona {
+    flex: 1;
+    background-color: $blue-gray-dark;
+    color: $light;
+    padding: 1rem;
+    margin-left: 1rem;
+
+    &_nl {
+        .location{
+            span {
+                &:nth-child(3) {
+                    color: $orange;
+                }
+            }
+        }
+    }
+
+    &_data {
+        display: flex;
+        margin: 1rem 0;
+
+        .confirmed,
+        .dead,
+        .recovered {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .confirmed {
+            p:last-child {
+                color: $blue-light;
+            }
+        }
+
+        .dead {
+            p:last-child {
+                color: $red-light;
+            }
+        }
+
+        .recovered {
+            p:last-child {
+                color: $green-light;
+            }
+        }
+    }
+
+    &_top3 {
+        margin-top: 4rem;
+
+        .top3_countries {
+            display: flex;
+            margin: 1rem 0;
+
+            .country {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                justify-content: center;
+
+                .location {
+                    p {
+                        &:first-child {
+                            span:first-child {
+                                display: flex;
+                                justify-content: flex-end;
+                                padding-bottom: 0.5rem;
+                                color: $orange;
+                            }
+                        }
+
+                        &:last-child {
+                            color: $blue-light;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
     .use(express.static('static'))
 
     .get('/', (req, res) => {
-        router.basicPage(res, 'home', 'Home');
+        router.overviewCoronaAll(res);
     });
 
 server.listen(config.port, () => {

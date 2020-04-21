@@ -1,66 +1,28 @@
-<!--location: 'Netherlands',-->
-<!--country_code: 'nl',-->
-<!--latitude: 52.132633,-->
-<!--longitude: 5.291266,-->
-<!--confirmed: 32655,-->
-<!--dead: 3684,-->
-<!--recovered: 250,-->
-<!--updated: '2020-04-20 10:20:15.955123+00:00' },-->
-
-<%
-const nl = "Netherlands",
-        sortedData = data.sort((a, b) => b.confirmed - a.confirmed),
-        top3 = sortedData.slice(0, 3),
-        dataNL = sortedData.filter(item => {
-            return item.location === nl;
-        }),
-        indexNL = sortedData.findIndex(item => {
-            return item.location === nl
-        }),
-        finalIndexNL = indexNL + 1;
-
-let indexTop3 = 1;
-%>
-
 <section class="corona">
-<% if(sortedData.length !== 0) { %>
-    <% dataNL.map(item => { %>
-        <div class="corona_nl">
-            <div class="location">
-                <h2><span><%= item.location %></span> <span>(</span><span>#<%= finalIndexNL %></span><span>)</span></h2>
-            </div>
-            <div class="corona_data">
-                <div class="confirmed">
-                    <p>Confirmed</p>
-                    <p><%= item.confirmed %></p>
-                </div>
-                <div class="dead">
-                    <p>Dead</p>
-                    <p><%= item.dead %></p>
-                </div>
-                <div class="recovered">
-                    <p>Recovered</p>
-                    <p><%= item.recovered %></p>
-                </div>
-            </div>
+    <div class="corona_nl">
+        <div class="location">
+            <h2><span id="location_nl">Netherlands</span> <span>(</span><span id="index_nl"></span><span>)</span></h2>
         </div>
-    <% }); %>
-    <div class="corona_top3">
-        <h2>Top 3 Of Confirmed Cases</h2>
-
-        <div class="top3_countries">
-
-        <% top3.map(item => { %>
-            <div class="country">
-                <div class="location">
-                    <p><span>#<%= indexTop3++ %></span><span><%= item.location %></span></p>
-                    <p><%= item.confirmed %></p>
-                </div>
+        <div class="corona_data">
+            <div class="confirmed">
+                <p>Confirmed</p>
+                <p id="confirmed_nl"></p>
             </div>
-        <% }); %>
+            <div class="dead">
+                <p>Dead</p>
+                <p id="dead_nl"></p>
+            </div>
+            <div class="recovered">
+                <p>Recovered</p>
+                <p id="recovered_nl"></p>
+            </div>
         </div>
     </div>
-<% } else {%>
-    <span>Oeps! Het lijkt erop alsof iets mis is gegaan, probeer het later opnieuw.</span>
-<% }%>
+
+    <div class="corona_top3">
+        <h2>Top 3 Of Confirmed Cases</h2>
+        <div class="top3_countries" id="top3_countries">
+
+        </div>
+    </div>
 </section>

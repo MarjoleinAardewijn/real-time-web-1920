@@ -25,6 +25,7 @@ The idea behind this app is to show people even though it's all very difficult r
   * [Production](#Production)
 * [How it works](#How-it-works)
   * [Data Life Cycle Diagram](#Data-Life-Cycle-Diagram)
+  * [Real Time Events](#Real-Time-Events)
   * [Dependencies](#Dependencies)
     * [Core Dependencies](#Core-Dependencies)
     * [Dev Dependencies](#Dev-Dependencies)
@@ -132,6 +133,8 @@ To see the logs when something went wrong, run the following command:
 ### Data Life Cycle Diagram
 
 ![Data Life Cycle Diagram](https://user-images.githubusercontent.com/23479038/79784432-83c49480-8342-11ea-8a30-4a9070e67392.jpg "Data Life Cycle Diagram")
+
+### Real Time Events
 
 ### Dependencies
 #### Core Dependencies

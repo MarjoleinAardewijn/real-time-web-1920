@@ -3,7 +3,13 @@ const config = require('../../config'),
     render = require('../../scripts/modules/render'),
     urlCountries = config.countries_url;
 
-const overviewCoronaAll = async (res) => {
+const basicPage = (res, view, title) => {
+        res.render(view, {
+            title
+        })
+    },
+
+    overviewCoronaAll = async (res) => {
         const title = 'Covid-19 All Countries';
 
         try {
@@ -15,4 +21,4 @@ const overviewCoronaAll = async (res) => {
         }
     };
 
-module.exports = { overviewCoronaAll };
+module.exports = { basicPage, overviewCoronaAll };

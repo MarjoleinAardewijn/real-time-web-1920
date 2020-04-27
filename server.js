@@ -51,12 +51,11 @@ ioInstance.on('connection', (socket) => {
 
     twitterClient.get('search/tweets', {q: hashtag}, (error, tweets, response) => {
         console.log(tweets);
-        ioInstance.emit('tweets', tweets);
+        ioInstance.to(socket.id).emit('tweets', tweets);
     });
 
     socket.on('disconnect', () => {
         console.log(`user disconnected`);
-        ioInstance.emit('server message', `SERVER: User disconnected.`);
     });
 });
 
@@ -87,8 +86,8 @@ const fetchAndEmitCoronaData = async (socket, ioInstance) => {
             top3Data.push(dataTop3[0], dataTop3[1], dataTop3[2]);
         }
 
-        ioInstance.to(socket.id).emit('corona country data', countryData, indexOfCountry);
-        ioInstance.to(socket.id).emit('corona top 3', dataTop3);
+        ioInstance.emit('corona country data', countryData, indexOfCountry);
+        ioInstance.emit('corona top 3', dataTop3);
     },
 
     isEqual = (oldArray, newArray) => {

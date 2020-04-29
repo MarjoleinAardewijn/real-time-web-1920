@@ -82,7 +82,7 @@ const sortTweets = () => {
         // Turn your strings into dates, and then subtract them to get a value that is either negative, positive, or zero.
         return new Date(b.created_at) - new Date(a.created_at);
     });
-    sortedTweets.filter((month,idx) => idx < historyLenght);
+    sortedTweets.filter((item, i) => i < historyLenght);
 };
 
 const filterAndSortTweets = (data) => {

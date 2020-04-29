@@ -17,14 +17,22 @@ const express = require('express'),
 const hashtag = '#daslief',
     country = 'Netherlands',
     coronaDataCountry = [],
-    top3Data = [];
+    top3Data = [],
+    historyLenght = 10;
+let tweetsLog = [],
+    sortedTweets = [];
 
 // Streaming Tweets
 
 twitterClientStream.stream('statuses/filter', {track: hashtag}, (stream) => {
     stream.on('data', function(event) {
         console.log(event);
-        ioInstance.emit('new tweet', event);
+        if(!event.text.match(/\bRT /gi)) {
+            sortedTweets.pop();
+            sortedTweets.unshift(event);
+            console.log(sortedTweets);
+            ioInstance.emit('new tweet', event);
+        }
     });
 
     stream.on('error', function(error) {
@@ -50,14 +58,37 @@ ioInstance.on('connection', (socket) => {
     fetchAndEmitCoronaData(socket, ioInstance);
 
     twitterClient.get('search/tweets', {q: hashtag}, (error, tweets, response) => {
-        console.log(tweets);
-        ioInstance.to(socket.id).emit('tweets', tweets);
+        filterAndSortTweets(tweets);
+        ioInstance.to(socket.id).emit('tweets', sortedTweets);
     });
 
     socket.on('disconnect', () => {
         console.log(`user disconnected`);
     });
 });
+
+const filterTweets = (data) => {
+    tweetsLog.length = 0;
+    return data.statuses.map(item => {
+        let retweet = item.text.match(/\bRT /gi);
+        if(!retweet) {
+            tweetsLog.push(item);
+        }
+    });
+};
+
+const sortTweets = () => {
+    sortedTweets = tweetsLog.sort((a, b) => {
+        // Turn your strings into dates, and then subtract them to get a value that is either negative, positive, or zero.
+        return new Date(b.created_at) - new Date(a.created_at);
+    });
+    sortedTweets.filter((month,idx) => idx < historyLenght);
+};
+
+const filterAndSortTweets = (data) => {
+    filterTweets(data);
+    sortTweets();
+};
 
 const fetchAndEmitCoronaData = async (socket, ioInstance) => {
         const coronaData = await coronaApi.coronaData(config.countries_url);

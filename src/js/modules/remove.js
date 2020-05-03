@@ -2,9 +2,8 @@
  * Method to remove the last child of an element.
  * @param elementId: the ID of the dev that you want to remove the last child from.
  */
-const removeLastChild = (elementId) => {
-    const div = document.getElementById(elementId);
-    div.removeChild(div.lastChild);
+const removeElement = (elementId) => {
+    document.getElementById(elementId).lastElementChild.remove();
 },
 
 /**

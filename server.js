@@ -22,24 +22,6 @@ const hashtag = '#daslief',
 let tweetsLog = [],
     sortedTweets = [];
 
-// Streaming Tweets
-
-twitterClientStream.stream('statuses/filter', {track: hashtag}, (stream) => {
-    stream.on('data', function(event) {
-        console.log(event);
-        if(!event.text.match(/\bRT /gi)) {
-            sortedTweets.pop();
-            sortedTweets.unshift(event);
-            console.log(sortedTweets);
-            ioInstance.emit('new tweet', event);
-        }
-    });
-
-    stream.on('error', function(error) {
-        console.log(error);
-    });
-});
-
 // Routing
 
 app.set('view engine', 'ejs')
@@ -67,6 +49,29 @@ ioInstance.on('connection', (socket) => {
     });
 });
 
+// Streaming Tweets
+
+twitterClientStream.stream('statuses/filter', {track: hashtag}, (stream) => {
+    stream.on('data', function(event) {
+        console.log(event);
+        if(!event.text.match(/\bRT /gi)) { // check if tweet is not a retweet.
+            sortedTweets.pop(); // remove last tweet of the array.
+            sortedTweets.unshift(event); // add tweet to the beginning of the array.
+            console.log(sortedTweets);
+            ioInstance.emit('new tweet', event);
+        }
+    });
+
+    stream.on('error', function(error) {
+        console.log(error);
+    });
+});
+
+/**
+ * Method to filter all the retweets from the array and add normal tweets to the array tweetsLog.
+ * @param data -> tweets
+ * @returns {*}
+ */
 const filterTweets = (data) => {
     tweetsLog.length = 0;
     return data.statuses.map(item => {
@@ -77,6 +82,9 @@ const filterTweets = (data) => {
     });
 };
 
+/**
+ * Method to sort all the tweets in the array tweetsLog on date.
+ */
 const sortTweets = () => {
     sortedTweets = tweetsLog.sort((a, b) => {
         // Turn your strings into dates, and then subtract them to get a value that is either negative, positive, or zero.
@@ -85,55 +93,71 @@ const sortTweets = () => {
     sortedTweets.filter((item, i) => i < historyLenght);
 };
 
+/**
+ * Method to filter and sort tweets.
+ * @param data
+ */
 const filterAndSortTweets = (data) => {
     filterTweets(data);
     sortTweets();
 };
 
+/**
+ * Method to fetch and emit Corona data.
+ * @param socket
+ * @param ioInstance
+ * @returns {Promise<void>}
+ */
 const fetchAndEmitCoronaData = async (socket, ioInstance) => {
-        const coronaData = await coronaApi.coronaData(config.countries_url);
+    const coronaData = await coronaApi.coronaData(config.countries_url);
 
-        const sortedData = coronaData.sort((a, b) => b.confirmed - a.confirmed),
-            dataTop3 = sortedData.slice(0, 3),
-            countryData = sortedData.filter(item => {
-                return item.location === country;
-            }),
-            findIndexOfCountry = sortedData.findIndex(item => {
-                return item.location === country;
-            }),
-            indexOfCountry = findIndexOfCountry + 1;
+    const sortedData = coronaData.sort((a, b) => b.confirmed - a.confirmed),
+        dataTop3 = sortedData.slice(0, 3),
+        countryData = sortedData.filter(item => {
+            return item.location === country;
+        }),
+        findIndexOfCountry = sortedData.findIndex(item => {
+            return item.location === country;
+        }),
+        indexOfCountry = findIndexOfCountry + 1;
 
-        // check if country data is updated or not
-        if(coronaDataCountry.length === 0) {
-            coronaDataCountry.push(countryData[0]); // add data to array
-        } else if(coronaDataCountry[0].updated !== countryData[0].updated) {
-            coronaDataCountry.length = 0; // empty array
-            coronaDataCountry.push(countryData[0]); // add updated data to array
-        }
+    // check if country data is updated or not
+    if(coronaDataCountry.length === 0) {
+        coronaDataCountry.push(countryData[0]); // add data to array
+    } else if(coronaDataCountry[0].updated !== countryData[0].updated) {
+        coronaDataCountry.length = 0; // empty array
+        coronaDataCountry.push(countryData[0]); // add updated data to array
+    }
 
-        // check if top 3 data is updated or not
-        if(isEqual(top3Data, dataTop3) === false) {
-            top3Data.length = 0;
-            top3Data.push(dataTop3[0], dataTop3[1], dataTop3[2]);
-        }
+    // check if top 3 data is updated or not
+    if(isEqual(top3Data, dataTop3) === false) {
+        top3Data.length = 0;
+        top3Data.push(dataTop3[0], dataTop3[1], dataTop3[2]);
+    }
 
-        ioInstance.emit('corona country data', countryData, indexOfCountry);
-        ioInstance.emit('corona top 3', dataTop3);
-    },
+    ioInstance.emit('corona country data', countryData, indexOfCountry);
+    ioInstance.emit('corona top 3', dataTop3);
+};
 
-    isEqual = (oldArray, newArray) => {
-        // if length is not equal
-        if(oldArray.length !== newArray.length)
-            return false;
-        else
-        {
-            // comapring each element of array
-            for(let i = 0; i < oldArray.length; i++)
-                if(oldArray[i].updated !== newArray[i].updated && oldArray[i].location !== newArray[i].location)
-                    return false;
-            return true;
-        }
-    };
+/**
+ * Method to check if elements in an array are the same depending on the updated time and location.
+ * @param oldArray
+ * @param newArray
+ * @returns {boolean}
+ */
+const isEqual = (oldArray, newArray) => {
+    // if length is not equal
+    if(oldArray.length !== newArray.length)
+        return false;
+    else
+    {
+        // comapring each element of array
+        for(let i = 0; i < oldArray.length; i++)
+            if(oldArray[i].updated !== newArray[i].updated && oldArray[i].location !== newArray[i].location)
+                return false;
+        return true;
+    }
+};
 
 server.listen(config.port, () => {
     console.log(`Application started on port: ${config.port}`);

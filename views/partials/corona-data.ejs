@@ -1,27 +1,49 @@
 <section class="corona">
     <div class="corona_nl">
         <div class="location">
-            <h2><span id="location_nl">Netherlands</span> <span>(</span><span id="index_nl"></span><span>)</span></h2>
+            <h2><span id="location_nl">Nederland</span> <span>(</span><span id="index_nl"></span><span>)</span></h2>
         </div>
         <div class="corona_data">
             <div class="confirmed">
-                <p>Confirmed</p>
+                <p>Bevestigd</p>
                 <p id="confirmed_nl"></p>
             </div>
             <div class="dead">
-                <p>Dead</p>
+                <p>Doden</p>
                 <p id="dead_nl"></p>
             </div>
             <div class="recovered">
-                <p>Recovered</p>
+                <p>Hersteld</p>
                 <p id="recovered_nl"></p>
             </div>
         </div>
     </div>
 
     <div class="corona_top3">
-        <h2>Top 3 Of Confirmed Cases</h2>
+        <h2>Top 3 Bevestigde Gevallen</h2>
         <div class="top3_countries" id="top3_countries">
+
+        </div>
+    </div>
+
+    <div class="corona_other-country">
+        <h2>Data Ander Land</h2>
+
+        <div class="select-country">
+            <label> Kies een land waarvan u de data wilt zien:
+                <div class="dropdown dropdown-dark">
+                    <select id="countries" class="dropdown-select">
+                        <option value="" disabled selected>kies een land</option>
+                        <%const sortedData = data.sort((a, b) => b.confirmed - a.confirmed)%>
+                        <% sortedData.map(item => {%>
+                            <option value="<%= item.location %>"><%= item.location %></option>
+                        <%});%>
+                    </select>
+                </div>
+            </label>
+        </div>
+
+        <div class="country-data" id="country-data">
 
         </div>
     </div>

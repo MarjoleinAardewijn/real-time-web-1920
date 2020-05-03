@@ -5,12 +5,10 @@
     padding: 1rem;
     margin-left: 1rem;
 
-    &_nl {
-        .location{
-            span {
-                &:nth-child(3) {
-                    color: $orange;
-                }
+    .location{
+        span {
+            &:nth-child(3) {
+                color: $orange;
             }
         }
     }

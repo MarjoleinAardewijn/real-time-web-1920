@@ -4,4 +4,63 @@
     color: $dark;
     padding: 1rem;
     margin-right: 1rem;
+
+    .tweets-wrapper {
+        max-height: 785px;
+        overflow: scroll;
+    }
+}
+
+.tweet {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    margin: 1rem;
+    background-color: #fff;
+    border-radius: 4px;
+
+    .links {
+        position: absolute;
+        top: -0.5rem;
+        right: -0.5rem;
+    }
+
+    .tweet-content {
+        margin-left: calc(50px + 0.5rem);
+    }
+}
+
+.btn-primary {
+    display: flex;
+    max-width: fit-content;
+    padding: 0.3rem;
+    box-shadow: $box-shadow;
+    border-radius: 4px;
+    background-color: $blue-gray-dark;
+
+    img {
+        width: 16px;
+    }
+}
+
+.user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    img {
+        width: 50px;
+    }
+
+    &_info {
+        margin-left: 0.5rem;
+
+        .tweet-created_at {
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+            color: $blue-gray-dark;
+        }
+    }
 }

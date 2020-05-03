@@ -34,7 +34,7 @@
                 <div class="dropdown dropdown-dark">
                     <select id="countries" class="dropdown-select">
                         <option value="" disabled selected>kies een land</option>
-                        <%const sortedData = data.sort((a, b) => b.confirmed - a.confirmed)%>
+                        <% const sortedData = data.sort((a, b) => b.confirmed - a.confirmed) %>
                         <% sortedData.map(item => {%>
                             <option value="<%= item.location %>"><%= item.location %></option>
                         <%});%>

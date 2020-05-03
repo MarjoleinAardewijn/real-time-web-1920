@@ -46,8 +46,6 @@
     }
 
     &_top3 {
-        margin-top: 4rem;
-
         .top3_countries {
             display: flex;
             margin: 1rem 0;
@@ -76,5 +74,10 @@
                 }
             }
         }
+    }
+
+    &_top3,
+    &_other-country {
+        margin-top: 4rem;
     }
 }

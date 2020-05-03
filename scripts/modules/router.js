@@ -10,7 +10,7 @@ const basicPage = (res, view, title) => {
     },
 
     overviewCoronaAll = async (res) => {
-        const title = 'Covid-19 All Countries';
+        const title = 'Corona - Positive Tweets';
 
         try {
             const data = await api.coronaData(urlCountries);

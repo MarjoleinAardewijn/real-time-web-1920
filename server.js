@@ -14,14 +14,14 @@ const express = require('express'),
 
 // Variables
 
-const defaultHashtag = '#Daslief',
+const defaultHashtag = '#daslief',
     defaultCountry = 'Netherlands',
     coronaDataCountry = [],
     top3Data = [],
     historyLenght = 10;
 let tweetsLog = [],
     sortedTweets = [],
-    hashtag = '';
+    hashtag = '#daslief';
 
 // Routing
 

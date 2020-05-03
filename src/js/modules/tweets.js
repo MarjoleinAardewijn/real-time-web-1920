@@ -122,7 +122,7 @@ if (selectBoxHashtags) selectBoxHashtags.addEventListener('change', (event) => {
     event.preventDefault();
 
     let selectedHashtag = selectBoxHashtags.value;
-    hashtagTitle.textContent = selectedHashtag;
+    hashtagTitle.textContent = selectedHashtag.replace(selectedHashtag.charAt(1), selectedHashtag.charAt(1).toUpperCase());
 
     socket.emit('change hashtag', selectedHashtag);
 });

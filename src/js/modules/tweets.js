@@ -42,6 +42,20 @@ const renderTweets = (data) => {
 },
 
 renderTweet = (data) => {
+    const divs = document.querySelectorAll('.tweet');
+    console.log(divs.length);
+
+    if(divs.length === 10) {
+        removeElement('tweets');
+    }
+
+    // removeElement('tweets');
+
+    // const div = document.getElementById('tweets').lastElementChild;
+    // div.style.display = 'none';
+    
+    // document.getElementById('tweets').lastElementChild.remove();
+
     const string = data.text;
     let matches = string.match(/\bhttps?:\/\/\S+/gi);
     let text = data.text.replace(/\bhttps?:\/\/\S+/gi, "");
@@ -127,7 +141,7 @@ if (selectBoxHashtags) selectBoxHashtags.addEventListener('change', (event) => {
     socket.emit('change hashtag', selectedHashtag);
 });
 
-socket.on('tweets', (tweets) => {
+socket.on('get tweets', (tweets) => {
     renderTweets(tweets);
 });
 

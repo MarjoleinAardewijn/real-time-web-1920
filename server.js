@@ -50,7 +50,7 @@ ioInstance.on('connection', (socket) => {
     twitterClient.get('search/tweets', {q: defaultHashtag}, (error, tweets, response) => {
         filterAndSortTweets(tweets);
         hashtag = defaultHashtag;
-        ioInstance.to(socket.id).emit('tweets', sortedTweets);
+        ioInstance.to(socket.id).emit('get tweets', sortedTweets);
     });
 
     socket.on('change hashtag', (data) => {
@@ -72,8 +72,13 @@ twitterClientStream.stream('statuses/filter', {track: hashtag}, (stream) => {
     stream.on('data', function(event) {
         console.log(event);
         if(!event.text.match(/\bRT /gi)) { // check if tweet is not a retweet.
-            sortedTweets.pop(); // remove last tweet of the array.
-            sortedTweets.unshift(event); // add tweet to the beginning of the array.
+            if(sortedTweets.length >= historyLenght) { // check if the array is bigger than the history length.
+                sortedTweets.pop(); // remove last tweet of the array.
+                sortedTweets.unshift(event); // add tweet to the beginning of the array.
+            } else {
+                sortedTweets.unshift(event);
+            }
+
             ioInstance.emit('new tweet', event);
         }
     });
@@ -95,13 +100,18 @@ const filterTweets = (data) => {
     return data.statuses.map(item => {
         let retweet = item.text.match(/\bRT /gi);
         if(!retweet) {
-            tweetsLog.push(item);
+            if(tweetsLog.length >= historyLenght) { // prevent the array from getting bigger than the history length.
+                tweetsLog.pop();
+                tweetsLog.unshift(item);
+            } else {
+                tweetsLog.push(item);
+            }
         }
     });
 };
 
 /**
- * Method to sort all the tweets in the array tweetsLog on date.
+ * Method to sort all the tweets in the array 'tweetsLog' on date.
  */
 const sortTweets = () => {
     sortedTweets = tweetsLog.sort((a, b) => {

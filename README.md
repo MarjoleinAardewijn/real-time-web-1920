@@ -276,7 +276,7 @@ For getting the data from the API I used the [NPM Package `twitter`](https://www
 
 You can install this package by running `npm i twitter` in your terminal.
 
-**Getting started**
+**Implementation**
 
 To get the data you first need to require the package in `server.js`:
 

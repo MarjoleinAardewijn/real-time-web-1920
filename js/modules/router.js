@@ -1,6 +1,6 @@
 const config = require('../../config'),
-    api = require('../../scripts/modules/corona-api'),
-    render = require('../../scripts/modules/render'),
+    api = require('./corona-api'),
+    render = require('./render'),
     urlCountries = config.countries_url;
 
 const basicPage = (res, view, title) => {

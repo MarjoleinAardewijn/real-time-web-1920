@@ -278,13 +278,13 @@ You can install this package by running `npm i twitter` in your terminal.
 
 **Implementation**
 
-To get the data you first need to require the package in `server.js`:
+To get the data you first need to require the package at the top of the file were you want to use it:
 
 ```js
 const twitter = require('twitter');
 ```
 
-Then you need to configure the required keys and tokens. For security it's best to configure them in your `.env` file and then invoke them in your code:
+Then you need to configure the required keys and tokens. For security it's best to initialize them in your `.env` file and then invoke them in your code:
 
 ```js
 const twitterConfig = () => {
@@ -297,7 +297,7 @@ const twitterConfig = () => {
 };
 ```
 
-For seperation of concerns I chose to write all the above in a module (`twitter-api.js`): 
+For seperation of concerns I chose to write all the above code in a module named `twitter-api.js`: 
 
 ```js
 const twitter = require('twitter');
@@ -321,14 +321,14 @@ const twitterApi = require('./scripts/modules/twitter-api');
 ```
 
 A second reason why I did this is because you need to create a new twitter instance for every connection. This way it's 
-easier to create a new connection, since this I only need to invoke a the configuration and assign it to a new variable:
+easier to create a new connection, since this way I only need to assign it to a new variable:
 
 ```js
 const twitterClientStream = twitterApi.twitterConfig(),
       twitterClient = twitterApi.twitterConfig();
 ```
 
-After creating a connection you can use the twitter **REST API** as follows inside the socket.IO connection:
+After creating a connection you can use the twitter **REST API** as follows inside your socket.IO connection to request the data:
 
 ```js
 ioInstance.on('connection', (socket) => {

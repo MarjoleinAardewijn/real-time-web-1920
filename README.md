@@ -581,6 +581,7 @@ The sources I used the most during the development of the app are:
 - [Chokidar](https://www.npmjs.com/package/chokidar-cli)
 - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
 - [Git Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+- [Twitter for Node.js](https://www.npmjs.com/package/twitter)
 
 ## Credits
 

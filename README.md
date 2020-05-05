@@ -133,7 +133,7 @@ To see the logs when something went wrong, run the following command:
 
 In the above **Data Life Cycle** (DLC) I summarize the interaction and data visually. When a user requests Twitter or Corona data,
 a request is send to the **server**. If it's a request to the Track Corona API the **server** will first check if the data is already in 
-the **database**. If this is the case the data from the database is send back to the server, if this is not the case the 
+the **database**. If this is the case the data from the **database** is send back to the **server**, if this is not the case the 
 **server** will send a **fetch request** to the **API**. \
 If it's a request to the Twitter API the the **server** the server will send a **fetch request** to the **API** immediately.
 When the **server** gets the data from one of the **API's** or the **database**, the **data will be sorted** and **stored in an array**. 
